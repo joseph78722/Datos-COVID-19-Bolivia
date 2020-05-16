@@ -1,0 +1,6 @@
+"0","Nuevos_casos_departamentos <- read_csv(""C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_departamentos.csv"""", "
+"0","                                       col_types = cols(Fecha = col_date(format = ""%d/%m/%Y""), "
+"2","Error: unexpected string constant in:
+""Nuevos_casos_departamentos <- read_csv(""C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_departamentos.csv"""", 
+                                       col_types = cols(Fecha = col_date(format = """"
+"

@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589654653845.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1207433887",
+    "id" : "E5532567",
+    "lastKnownWriteTime" : 1589662655,
+    "last_content_update" : 1589662655654,
+    "path" : "~/Datos COVID-19 Bolivia/docs/index.Rmd",
+    "project_path" : "docs/index.Rmd",
+    "properties" : {
+        "cursorPosition" : "24,88",
+        "scrollLine" : "13",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
