@@ -44,7 +44,7 @@ valueBox(692, caption = "Casos sospechosos", color  = '#FF990F', icon = "fas fa-
 
 Column {data-height=450}
 -------------------------------------
-### Chart 2
+### 
 
 ```{r}
 Nuevos_casos_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_departamentos.csv", 
@@ -80,7 +80,7 @@ nuevos_casos
 
 Column 
 -------------------------------------
-### Chart 3
+### 
     
 ```{r}
 Nuevos_casos_nacional <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_nacional.csv", 
@@ -95,7 +95,7 @@ nuevos_casos <- ggplotly(nuevos_casos) %>% config ( displayModeBar  =  F )
 nuevos_casos
 ```
 
-### Chart 4
+### 
     
 ```{r}
 Confirmados <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Confirmados.csv", 
