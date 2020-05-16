@@ -52,7 +52,7 @@ Nuevos_casos_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-
                                                         `Nuevos casos` = col_integer()))
 diario <- ggplot(Nuevos_casos_departamentos, aes(Fecha, Departamento, fill=`Nuevos casos`)) + 
   geom_tile() + 
-  scale_fill_gradient(low = "#ffffff", high = "#1162ac")+
+  scale_fill_gradient(low = "#ffffff", high = "#170062")+
   labs(title = 'Nuevos casos de coronavirus por departamento y fecha',
        x= 'Fechas', y ='') +
   theme_calc()+
