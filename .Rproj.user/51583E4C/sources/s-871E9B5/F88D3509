@@ -12,16 +12,16 @@
     "path" : null,
     "project_path" : null,
     "properties" : {
-        "cacheKey" : "519C80DE",
+        "cacheKey" : "15915C76",
         "caption" : "Fallecidos",
-        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Fallecidos&cache_key=519C80DE",
-        "displayedObservations" : 67,
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Fallecidos&cache_key=15915C76",
+        "displayedObservations" : "68",
         "environment" : "",
         "expression" : "Fallecidos",
         "object" : "Fallecidos",
-        "preview" : 0,
-        "totalObservations" : 67,
-        "variables" : 2
+        "preview" : "0",
+        "totalObservations" : "68",
+        "variables" : "2"
     },
     "read_only" : false,
     "read_only_alternatives" : [
