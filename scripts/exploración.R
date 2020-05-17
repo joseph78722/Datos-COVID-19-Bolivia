@@ -78,3 +78,4 @@ Conf <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Conf
                  col_types = cols(`Casos confirmados` = col_integer(), 
                                   Fecha = col_date(format = "%d/%m/%Y")))
 valor <- Conf[67,2]
+

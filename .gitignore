@@ -1,0 +1,15 @@
+.Rproj.user
+Key.R
+
+.Rhistory
+
+.Rapp.history
+
+.Rproj.user/
+*.utf8.md
+*.knit.md
+
+data/jcpd-all.csv
+scripts/keys.R
+comments
+.Rproj.user
