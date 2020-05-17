@@ -72,3 +72,9 @@ grafico <- dygraph(dinamico, ylab = 'Cantidad',
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 2)) %>% 
   dyRangeSelector(height = 20)
 grafico
+
+
+Conf <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Confirmados.csv", 
+                 col_types = cols(`Casos confirmados` = col_integer(), 
+                                  Fecha = col_date(format = "%d/%m/%Y")))
+valor <- Conf[67,2]

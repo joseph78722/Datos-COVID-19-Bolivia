@@ -1,0 +1,6 @@
+"0",""
+"0","Rec <- read_csv(""C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Recuperados.csv"", "
+"0","                        col_types = cols(Fecha = col_date(format = ""%d/%m/%Y""), "
+"0","                                         Recuperados = col_integer()))"
+"0","valor2 <- max(Rec$Recuperados, na.rm = FALSE)"
+"0","valueBox(valor2, caption = ""Recuperados"", color  = '#00AC37', icon = ""glyphicon glyphicon-ok"")"

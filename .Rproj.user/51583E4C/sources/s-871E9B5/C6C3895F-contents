@@ -72,3 +72,38 @@ grafico <- dygraph(dinamico, ylab = 'Cantidad',
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 2)) %>% 
   dyRangeSelector(height = 20)
 grafico
+
+
+Conf <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Confirmados.csv", 
+                 col_types = cols(`Casos confirmados` = col_integer(), 
+                                  Fecha = col_date(format = "%d/%m/%Y")))
+valor1 <- max(Conf$`Casos confirmados`, na.rm = FALSE)
+
+
+
+Nuevos_casos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_nacional.csv", 
+                         col_types = cols(Fecha = col_date(format = "%d/%m/%Y"), 
+                                          `Nuevos casos` = col_integer()))
+Valor4 <- max(Nuevos_casos$`Nuevos casos`, na.rm = FALSE)
+Valor5 <- max(Nuevos_casos$`Nuevos casos`, na.rm = F)
+max(Nuevos_casos_nacional$`Nuevos casos`, na.rm = FALSE)
+
+Nuevos_casos_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_departamentos.csv", 
+                                       col_types = cols(Fecha = col_date(format = "%d/%m/%Y"), 
+                                                        `Nuevos casos` = col_integer()))
+diario <- ggplot(Nuevos_casos_departamentos, aes(Fecha, Departamento, fill=`Nuevos casos`)) + 
+  geom_tile() + 
+  scale_fill_gradient(low = "#ffffff", high = "#170062")+
+  labs(title = 'Nuevos casos de coronavirus por departamento y fecha',
+       x= 'Fechas', y ='') +
+  theme_calc()+
+  theme(legend.position = 'top')
+
+
+mapa_calor <- ggplotly(diario)%>% config ( displayModeBar  =  F) %>% layout(xaxis=list(fixedrange=TRUE)) %>% 
+  layout(yaxis=list(fixedrange=TRUE)) 
+mapa_calor
+
+Nuevos_casos_departamentos <- 
+  
+  file.choose()

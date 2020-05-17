@@ -1,0 +1,12 @@
+"0","Nuevos_casos_nacional <- read_csv(""C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_nacional.csv"", "
+"0","                                  col_types = cols(Fecha = col_date(format = ""%d/%m/%Y""), "
+"0","                                                   `Nuevos casos` = col_integer()))"
+"2","The following named parsers don't match the column names: Fecha, Nuevos casos"
+"0","nuevos_casos <- ggplot(data = Nuevos_casos_nacional) +"
+"0","  geom_bar(aes(x = Fecha, y = `Nuevos casos`), stat = 'identity', fill = '#000F8E')+"
+"0","  labs(title = ""Nuevos casos por fecha a nivel nacional"") +"
+"0","  scale_y_continuous(breaks = seq(0, 400, by = 50))+"
+"0","  theme_minimal()"
+"0","nuevos_casos <- ggplotly(nuevos_casos) %>% config ( displayModeBar  =  F ) "
+"2","Error in FUN(X[[i]], ...) : objeto 'Fecha' no encontrado
+"

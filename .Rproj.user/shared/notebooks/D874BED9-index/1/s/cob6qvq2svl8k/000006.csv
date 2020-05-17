@@ -1,0 +1,6 @@
+"0","Nuevos_casos_nacional <- read_csv(""C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_nacional.csv"", col_types = cols(Fecha = col_date(format = ""%d/%m/%Y""),`Nuevos casos` = col_integer()))"
+"0","View(Nuevos_casos_nacional)"
+"0",""
+"0","Valor5 <- last(Nuevos_casos_nacional$`Nuevos casos`, na.rm = FALSE)"
+"0",""
+"0","valueBox(Valor5, caption = ""Nuevos casos"", color  = '#FFC519', icon = ""fas fa-notes-medical"")"

@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589719624225.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "804F086B",
+    "lastKnownWriteTime" : 1589719326,
+    "last_content_update" : 1589719624225,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "E0C0D984",
+        "caption" : "Nuevos_casos_nacional",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Nuevos_casos_nacional&cache_key=E0C0D984",
+        "displayedObservations" : "68",
+        "environment" : "",
+        "expression" : "Nuevos_casos_nacional",
+        "object" : "Nuevos_casos_nacional",
+        "preview" : "0",
+        "totalObservations" : "68",
+        "variables" : "2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

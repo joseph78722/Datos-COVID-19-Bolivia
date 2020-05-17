@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589720700662.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1A756278",
+    "lastKnownWriteTime" : 2270699044248,
+    "last_content_update" : 1589720700662,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "94BF0925",
+        "caption" : "Nuevos_casos",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Nuevos_casos&cache_key=94BF0925",
+        "displayedObservations" : "68",
+        "environment" : "",
+        "expression" : "Nuevos_casos",
+        "object" : "Nuevos_casos",
+        "preview" : "0",
+        "totalObservations" : "68",
+        "variables" : "2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
