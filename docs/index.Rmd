@@ -4,7 +4,6 @@ author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud    
 output: 
   flexdashboard::flex_dashboard:
     logo: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
-    Favicon: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
     vertical_layout: scroll
     orientation: row
     theme: cerulean
@@ -39,7 +38,7 @@ valueBox(valor1, caption = "Casos confirmados", color  = '#5B89E2', "icon = fas 
 Rec <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Recuperados.csv", 
                         col_types = cols(Fecha = col_date(format = "%d/%m/%Y"), 
                                          Recuperados = col_integer()))
-valor2 <- max(Rec$Recuperados, na.rm = FALSE)
+valor2 <- last(Rec$Recuperados, na.rm = FALSE)
 valueBox(valor2, caption = "Recuperados", color  = '#00AC37', icon = "glyphicon glyphicon-ok")
     ```
 
@@ -48,7 +47,7 @@ valueBox(valor2, caption = "Recuperados", color  = '#00AC37', icon = "glyphicon 
 Fall <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Fallecidos.csv", 
                        col_types = cols(Fallecidos = col_integer(), 
                                         Fecha = col_date(format = "%d/%m/%Y")))
-Valor3 <- max(Fall$Fallecidos, na.rm = FALSE)
+Valor3 <- last(Fall$Fallecidos, na.rm = FALSE)
 valueBox(Valor3, caption = "Decesos", color  = '#8E8E8E', icon = "fas fa-ribbon")
     ```
 
