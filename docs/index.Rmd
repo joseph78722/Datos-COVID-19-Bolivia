@@ -161,7 +161,6 @@ departamentos <- Nuevo %>%
   hc_colors(c('#FF0000', '#800000', '#FFFF00', '#808000', '#008000', '#00FFFF', '#008080', '#000080', '#800080')) %>% 
   hc_title(text = "Acumulado de casos confirmados por departamentos") %>% 
  hc_add_theme(hc_theme_smpl())
-
   
 departamentos
 
@@ -179,10 +178,9 @@ mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
       dataLabels = list(enabled = F, format = '{point.name}',
       borderColor = "#000000", borderWidth = 0.5)) %>% 
-  hc_title(text = "Mapa: cantidad de casos confirmados") %>% 
+  hc_title(text = "Mapa: cantidad de casos confirmados por departamento") %>% 
   hc_add_theme(hc_theme_elementary())
 mapa
-
 
 ```
 
