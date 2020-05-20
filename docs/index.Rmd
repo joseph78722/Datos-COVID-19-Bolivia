@@ -22,6 +22,7 @@ library(readr)
 library(flexdashboard)
 library(viridis)
 library(hrbrthemes)
+library(highcharter)
 
 Conf <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Confirmados.csv", 
                         col_types = cols(`Casos confirmados` = col_integer(), 
@@ -91,20 +92,16 @@ Column
 ### 
     
 ```{r}
-Nuevos_casos_nacional <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_nacional.csv", 
-                                  col_types = cols(Fecha = col_date(format = "%d/%m/%Y"), 
-                                                   `Nuevos casos` = col_integer()))
+Nuevos_casos_nacional <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Nuevos_casos_nacional.csv")
 
-nuevos_casos <- ggplot(data = Nuevos_casos_nacional) +
-  geom_bar(aes(x = Fecha, y = `Nuevos casos`), stat = 'identity', fill = '#000F8E')+
-  labs(title = "Nuevos casos por fecha a nivel nacional") +
-  scale_y_continuous(breaks = seq(0, 400, by = 50))+
-  theme_minimal()
-
-nuevos_casos <- ggplotly(nuevos_casos) %>% config ( displayModeBar  =  F ) %>% layout(xaxis=list(fixedrange=TRUE)) %>% 
-  layout(yaxis=list(fixedrange=TRUE))  
-nuevos_casos
-
+barras <- Nuevos_casos_nacional %>% 
+hchart(name = 'Nuevos casos', 'column', hcaes(x= 'Fecha', y= `Nuevos casos`)) %>% 
+  hc_colors('#5FCAD8') %>% 
+hc_plotOptions(column = list(pointWidth= 8)) %>% 
+  hc_title(text = "Nuevos casos a nivel nacional") %>% 
+   hc_add_theme(hc_theme_elementary())
+barras
+  
 ```
 
 ### 
@@ -141,6 +138,50 @@ grafico <- dygraph(dinamico, ylab = 'Cantidad',
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 2)) %>% 
   dyRangeSelector(height = 20)
 grafico
+
+
+```
+
+
+Column 
+-------------------------------------
+###
+```{r}
+Acumulado_departamento <- read_csv('C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Acumulado_departamento.csv', 
+    col_types = cols(Beni = col_integer(), 
+        Chuquisaca = col_integer(), Cochabamba = col_integer(), 
+        `La Paz` = col_integer(), Oruro = col_integer(), 
+        Pando = col_integer(), `Potosí` = col_integer(), 
+        `Santa Cruz` = col_integer(), Tarija = col_integer()))
+
+Nuevo <- Acumulado_departamento %>% gather('Departamentos', 'Casos', 2:10)
+
+departamentos <- Nuevo %>% 
+  hchart('line', hcaes(x='Fecha', y='Casos', group = 'Departamentos')) %>% 
+  hc_colors(c('#FF0000', '#800000', '#FFFF00', '#808000', '#008000', '#00FFFF', '#008080', '#000080', '#800080')) %>% 
+  hc_title(text = "Acumulado de casos confirmados por departamentos") %>% 
+ hc_add_theme(hc_theme_elementary())
+
+  
+departamentos
+
+```
+
+###
+```{r}
+mapdata <- get_data_from_map(download_map_data('countries/bo/bo-all'))
+
+'Casos confirmados' <- mapdata %>% 
+  select(Departamento = 'name') 
+`Casos confirmados`$Casos = c(355, 246, 55, 679, 138, 39, 2982, 13, 12)
+
+mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
+      joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
+      dataLabels = list(enabled = F, format = '{point.name}',
+      borderColor = "#000000", borderWidth = 0.5)) %>% 
+  hc_title(text = "Mapa: cantidad de casos confirmados") %>% 
+  hc_add_theme(hc_theme_elementary())
+mapa
 
 
 ```
