@@ -1,6 +1,6 @@
 ---
 title: "Bolivia: datos COVID-19"
-author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 20-05-2020'
+author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 21-05-2020'
 output: 
   flexdashboard::flex_dashboard:
     logo: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
@@ -98,7 +98,7 @@ barras <- Nuevos_casos_nacional %>%
 hchart(name = 'Nuevos casos', 'column', hcaes(x= 'Fecha', y= `Nuevos casos`)) %>% 
   hc_colors('#5FCAD8') %>% 
 hc_plotOptions(column = list(pointWidth= 8)) %>% 
-  hc_title(text = "Nuevos casos a nivel nacional") %>% 
+  hc_title(text = "Nuevos casos a nivel nacional por fecha") %>% 
    hc_add_theme(hc_theme_elementary())
 barras
   
@@ -127,7 +127,7 @@ Recuperados_xts <- xts(Recuperados$Recuperados, order.by = Recuperados$Fecha, fr
 dinamico <- cbind(Confirmados_xts, Fallecidos_xts, Recuperados_xts)
 
 grafico <- dygraph(dinamico, ylab = 'Cantidad',
-                   main = 'Total de casos confirmados, recuperados y fallecidos') %>% 
+                   main = 'Acumulado de casos confirmados, recuperaciones y decesos') %>% 
   dySeries('Confirmados_xts', label = 'Casos') %>% 
   dySeries('Fallecidos_xts', label = 'Fallecidos') %>% 
   dySeries('Recuperados_xts', label = 'Recuperados') %>% 
@@ -165,21 +165,24 @@ departamentos <- Nuevo %>%
 departamentos
 
 ```
+   
 
 ###
 ```{r}
 mapdata <- get_data_from_map(download_map_data('countries/bo/bo-all'))
+Lista_de_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Lista de departamentos.csv", 
+    col_types = cols(`Casos confirmados` = col_integer()))
 
 'Casos confirmados' <- mapdata %>% 
   select(Departamento = 'name') 
-`Casos confirmados`$Casos = c(355, 246, 55, 679, 138, 39, 2982, 13, 12)
+`Casos confirmados`$Casos = c(363, 259, 19, 833, 138, 40, 3241, 14, 12)
 
 mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
       dataLabels = list(enabled = F, format = '{point.name}',
       borderColor = "#000000", borderWidth = 0.5)) %>% 
   hc_title(text = "Mapa: cantidad de casos confirmados por departamento") %>% 
-  hc_add_theme(hc_theme_elementary())
+  hc_add_theme(hc_theme_elementary()) 
 mapa
 
 ```
