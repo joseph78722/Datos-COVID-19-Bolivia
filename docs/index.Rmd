@@ -175,7 +175,7 @@ Lista_de_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 B
 
 'Casos confirmados' <- mapdata %>% 
   select(Departamento = 'name') 
-`Casos confirmados`$Casos = c(375, 266, 19, 902, 141, 41, 3414, 17, 12)
+`Casos confirmados`$Casos = c(381, 285, 19, 1015, 143, 41, 3665, 18, 12)
 
 mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
