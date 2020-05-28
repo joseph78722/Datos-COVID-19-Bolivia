@@ -133,7 +133,7 @@ grafico <- dygraph(dinamico, ylab = 'Cantidad',
   dySeries('Recuperados_xts', label = 'Recuperados') %>% 
   dyOptions(colors = c('#0037A2', 'Black', '#00B50C')) %>% 
   dyRangeSelector(height = 20) %>% 
-  dyOptions(strokeWidth = 2, pointSize = 5, pointShape = 'circle')
+  dyOptions(strokeWidth = 2, pointSize = 20)
   
   
 grafico
