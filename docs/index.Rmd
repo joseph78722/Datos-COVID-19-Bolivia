@@ -1,6 +1,6 @@
 ---
 title: "Bolivia: datos COVID-19"
-author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 26-05-2020'
+author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 27-05-2020'
 output: 
   flexdashboard::flex_dashboard:
     logo: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
@@ -175,7 +175,7 @@ Lista_de_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 B
 ### La Paz-Cochabamba-Chuquisaca-Beni-Oruro-Potosí-Santa Cruz-Tarija-Pando
 'Casos confirmados' <- mapdata %>% 
   select(Departamento = 'name') 
-`Casos confirmados`$Casos = c(410, 345, 22, 1242, 153, 44, 4888, 19, 13)
+`Casos confirmados`$Casos = c(415, 376, 25, 1355, 155, 44, 5366, 19, 13)
 
 mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
@@ -197,7 +197,8 @@ hchart(Registro_departamentos, "bar", hcaes(x = "Departamento", y = "Cantidad", 
   hc_plotOptions(bar = list(
     dataLabels = list(enabled = FALSE),
     stacking = "normal")) %>% 
-   hc_title(text = "Registro por departamento")
+   hc_title(text = "Cantidad de casos confirmados, fallecidos y decesos") %>% 
+  hc_yAxis(title = list(text = ""))
 
 ```
 
@@ -206,8 +207,9 @@ hchart(Registro_departamentos, "bar", hcaes(x = "Departamento", y = "Cantidad", 
 municipios <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\municipios.csv")
 
 hcmap('countries/bo/bo-all', showInLegend = F) %>%
-  hc_add_series(data = municipios, type = "mapbubble", name = "Casos confirmados", maxSize = '18%', color = "orange") %>% 
+  hc_add_series(data = municipios, type = "mapbubble", name = "Casos confirmados", maxSize = '12%', minSize = '1%', color = "orange") %>% 
   hc_mapNavigation(enabled = TRUE) %>% 
-  hc_title(text = "Cantidad de casos confirmados por municipio")
+  hc_title(text = "Reporte semanal de casos de COVID-19") %>% 
+  hc_subtitle(text = "Datos actualizados a la Semana epidemiológica 21/2020)") 
 
 ```
