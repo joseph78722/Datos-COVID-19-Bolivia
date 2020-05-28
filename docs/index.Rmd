@@ -1,6 +1,6 @@
 ---
 title: "Bolivia: datos COVID-19"
-author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 25-05-2020'
+author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 26-05-2020'
 output: 
   flexdashboard::flex_dashboard:
     logo: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
@@ -131,12 +131,11 @@ grafico <- dygraph(dinamico, ylab = 'Cantidad',
   dySeries('Confirmados_xts', label = 'Casos') %>% 
   dySeries('Fallecidos_xts', label = 'Fallecidos') %>% 
   dySeries('Recuperados_xts', label = 'Recuperados') %>% 
-  dyOptions(colors = c('Blue', 'Black', 'Green')) %>% 
-  dyHighlight(highlightCircleSize = 5, 
-              highlightSeriesBackgroundAlpha = 0.2,
-              hideOnMouseOut = FALSE) %>% 
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 2)) %>% 
-  dyRangeSelector(height = 20)
+  dyOptions(colors = c('#0037A2', 'Black', '#00B50C')) %>% 
+  dyRangeSelector(height = 20) %>% 
+  dyOptions(strokeWidth = 2, pointSize = 5, pointShape = 'circle')
+  
+  
 grafico
 
 
@@ -176,7 +175,7 @@ Lista_de_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 B
 ### La Paz-Cochabamba-Chuquisaca-Beni-Oruro-Potosí-Santa Cruz-Tarija-Pando
 'Casos confirmados' <- mapdata %>% 
   select(Departamento = 'name') 
-`Casos confirmados`$Casos = c(403, 339, 22, 1142, 151, 44, 4527, 19, 13)
+`Casos confirmados`$Casos = c(410, 345, 22, 1242, 153, 44, 4888, 19, 13)
 
 mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
@@ -188,3 +187,26 @@ mapa
 
 ```
 
+Column 
+-------------------------------------
+###
+```{r}
+Registro_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Registro departamentos.csv", 
+    col_types = cols(Cantidad = col_integer()))
+hchart(Registro_departamentos, "bar", hcaes(x = "Departamento", y = "Cantidad", group = "Tipo")) %>% 
+  hc_plotOptions(bar = list(
+    dataLabels = list(enabled = FALSE),
+    stacking = "normal")) %>% 
+   hc_title(text = "Registro de casos COVID-19")
+```
+
+###
+```{r}
+municipios <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\municipios.csv")
+
+hcmap('countries/bo/bo-all', showInLegend = F) %>%
+  hc_add_series(data = municipios, type = "mapbubble", name = "Casos confirmados", maxSize = '18%', color = "orange") %>% 
+  hc_mapNavigation(enabled = TRUE) %>% 
+  hc_title(text = "Cantidad de casos de COVID-19 por municipio")
+
+```

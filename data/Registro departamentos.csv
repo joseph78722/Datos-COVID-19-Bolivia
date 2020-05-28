@@ -1,0 +1,28 @@
+Departamento,Tipo,Cantidad
+Santa Cruz,Casos confirmados,4888
+Santa Cruz,Fallecidos,135
+Santa Cruz,Recuperados,273
+Beni,Casos confirmados,1242
+Beni,Fallecidos,77
+Beni,Recuperados,8
+La Paz,Casos confirmados,410
+La Paz,Fallecidos,24
+La Paz,Recuperados,219
+Cochabamba,Casos confirmados,345
+Cochabamba,Fallecidos,18
+Cochabamba,Recuperados,60
+Oruro,Casos confirmados,153
+Oruro,Fallecidos,13
+Oruro,Recuperados,72
+Potosí,Casos confirmados,44
+Potosí,Fallecidos,1
+Potosí,Recuperados,20
+Chuquisaca,Casos confirmados,22
+Chuquisaca,Fallecidos,2
+Chuquisaca,Recuperados,11
+Tarija,Casos confirmados,19
+Tarija,Fallecidos,3
+Tarija,Recuperados,7
+Pando,Casos confirmados,13
+Pando,Fallecidos,1
+Pando,Recuperados,7
