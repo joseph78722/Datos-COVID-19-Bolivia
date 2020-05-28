@@ -210,6 +210,6 @@ hcmap('countries/bo/bo-all', showInLegend = F) %>%
   hc_add_series(data = municipios, type = "mapbubble", name = "Casos confirmados", maxSize = '12%', minSize = '1%', color = "orange") %>% 
   hc_mapNavigation(enabled = TRUE) %>% 
   hc_title(text = "Reporte semanal de casos de COVID-19") %>% 
-  hc_subtitle(text = "Datos actualizados a la Semana epidemiológica 21/2020)") 
+  hc_subtitle(text = "Datos actualizados a la Semana epidemiológica 21/2020") 
 
 ```
