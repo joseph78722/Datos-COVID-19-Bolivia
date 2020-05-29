@@ -1,6 +1,6 @@
 ---
 title: "Bolivia: datos COVID-19"
-author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 27-05-2020'
+author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 28-05-2020'
 output: 
   flexdashboard::flex_dashboard:
     logo: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
@@ -175,7 +175,7 @@ Lista_de_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 B
 ### La Paz-Cochabamba-Chuquisaca-Beni-Oruro-Potosí-Santa Cruz-Tarija-Pando
 'Casos confirmados' <- mapdata %>% 
   select(Departamento = 'name') 
-`Casos confirmados`$Casos = c(415, 376, 25, 1355, 155, 44, 5366, 19, 13)
+`Casos confirmados`$Casos = c(423, 419, 25, 1506, 159, 46, 5774, 22, 13)
 
 mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
@@ -184,7 +184,6 @@ mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
   hc_title(text = "Mapa: cantidad de casos confirmados por departamento") %>% 
   hc_add_theme(hc_theme_elementary()) 
 mapa
-
 ```
 
 Column 
