@@ -1,6 +1,6 @@
 ---
 title: "Bolivia: datos COVID-19"
-author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 28-05-2020'
+author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 29-05-2020'
 output: 
   flexdashboard::flex_dashboard:
     logo: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
@@ -106,7 +106,7 @@ barras
 
 ### 
     
-```{r}
+```{r} 
 Confirmados <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\data\\Confirmados.csv", 
                         col_types = cols(`Casos confirmados` = col_integer(), 
                                          Fecha = col_date(format = "%d/%m/%Y")))
@@ -134,6 +134,7 @@ grafico <- dygraph(dinamico, ylab = 'Cantidad',
   dyOptions(colors = c('#0037A2', 'Black', '#00B50C')) %>% 
   dyRangeSelector(height = 20) %>% 
   dyOptions(strokeWidth = 2, pointSize = 20)
+
   
   
 grafico
@@ -175,7 +176,7 @@ Lista_de_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 B
 ### La Paz-Cochabamba-Chuquisaca-Beni-Oruro-Potosí-Santa Cruz-Tarija-Pando
 'Casos confirmados' <- mapdata %>% 
   select(Departamento = 'name') 
-`Casos confirmados`$Casos = c(423, 419, 25, 1506, 159, 46, 5774, 22, 13)
+`Casos confirmados`$Casos = c(444, 488, 25, 1576, 166, 48, 5946, 24, 14)
 
 mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
