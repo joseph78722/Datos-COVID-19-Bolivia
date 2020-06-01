@@ -1,6 +1,6 @@
 ---
 title: "Bolivia: datos COVID-19"
-author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 29-05-2020'
+author: '**Elaboración**: José Romero      **Fuente**: Ministerio de Salud     **Actualizado**: 30-05-2020'
 output: 
   flexdashboard::flex_dashboard:
     logo: "C:\\Users\\Asus\\Documents\\Datos COVID-19 Bolivia\\icono3.png"
@@ -74,7 +74,7 @@ Nuevos_casos_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-
                                                 
 diario <- ggplot(Nuevos_casos_departamentos, aes(Fecha, Departamento, fill=`Nuevos casos`)) + 
   geom_tile() + 
-  scale_fill_gradient(low = "#ffffff", high = "#170062")+
+  scale_fill_gradient(low = "#ffffff", high = "#000000")+
   labs(title = 'Nuevos casos de coronavirus por departamento y fecha',
        x= 'Fechas', y ='') +
   theme_calc()+
@@ -133,7 +133,7 @@ grafico <- dygraph(dinamico, ylab = 'Cantidad',
   dySeries('Recuperados_xts', label = 'Recuperados') %>% 
   dyOptions(colors = c('#0037A2', 'Black', '#00B50C')) %>% 
   dyRangeSelector(height = 20) %>% 
-  dyOptions(strokeWidth = 2, pointSize = 20)
+  dyOptions(strokeWidth = 2, pointSize = 2)
 
   
   
@@ -176,7 +176,7 @@ Lista_de_departamentos <- read_csv("C:\\Users\\Asus\\Documents\\Datos COVID-19 B
 ### La Paz-Cochabamba-Chuquisaca-Beni-Oruro-Potosí-Santa Cruz-Tarija-Pando
 'Casos confirmados' <- mapdata %>% 
   select(Departamento = 'name') 
-`Casos confirmados`$Casos = c(444, 488, 25, 1576, 166, 48, 5946, 24, 14)
+`Casos confirmados`$Casos = c(478, 556, 25, 1707, 190, 48, 6542, 32, 14)
 
 mapa <- hcmap('countries/bo/bo-all', data = `Casos confirmados`,
       joinBy = c("name", "Departamento"), name = "Casos confirmados", value = "Casos",
